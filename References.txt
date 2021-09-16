@@ -2,5 +2,8 @@ https://web.dev/external-anchors-use-rel-noopener/
 https://developer.mozilla.org/en-US/docs/Web/CSS/::part
 https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 https://lit-element.polymer-project.org/guide/styles#customprops
+LitElement docs on custom properties and workin with css variables to make "themes"
 https://github.com/elmsln/lrnwebcomponents/blob/master/elements/simple-cta/simple-cta.js
+Simple CTA code example from today
 https://github.com/elmsln/lrnwebcomponents/blob/master/elements/lrn-button/lrn-button.js
+Another CTA example. this one has A LOT of css selectors relative to events in the element. It's poorly designed but is another example to react to and draw ideas from
