@@ -1,0 +1,6 @@
+https://web.dev/external-anchors-use-rel-noopener/
+https://developer.mozilla.org/en-US/docs/Web/CSS/::part
+https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+https://lit-element.polymer-project.org/guide/styles#customprops
+https://github.com/elmsln/lrnwebcomponents/blob/master/elements/simple-cta/simple-cta.js
+https://github.com/elmsln/lrnwebcomponents/blob/master/elements/lrn-button/lrn-button.js
