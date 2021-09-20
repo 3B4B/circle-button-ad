@@ -8,7 +8,7 @@ export class CircleButtonAd extends LitElement {
         padding: 25px;
         color: var(--circle-button-ad-text-color, #000);
       }
-      button {
+      a button {
         min-width: 60px;
         max-width: 100%;
         min-height: 60px;
