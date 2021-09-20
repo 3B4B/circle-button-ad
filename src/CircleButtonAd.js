@@ -10,23 +10,18 @@ export class CircleButtonAd extends LitElement {
         display: block;
         padding: 25px;
         color: var(--circle-button-ad-text-color, #000);
+      }
       button {
-      
       }
       button:active {
-
       }
       button:hover {
-        
       }
       button:focus {
-
       }
       button:disabled {
+      }
 
-      }
-      
-      }
       a button {
         min-width: 60px;
         max-width: 100%;
@@ -61,8 +56,6 @@ export class CircleButtonAd extends LitElement {
     `;
   }
 
-  
-
   static get properties() {
     return {
       buttonText: { type: String },
@@ -71,17 +64,19 @@ export class CircleButtonAd extends LitElement {
   }
 
   constructor() {
-    
     super();
     this.buttonText = 'Google';
     this.buttonLink = 'https://google.com';
-    if (this.querySelector("a")) {
-      this.link = this.querySelector("a").getAttribute("href");
-      this.title = this.querySelector("a").innerText;
+
+    // TODO: From simple-cta, want to see if this works
+    if (this.querySelector('a')) {
+      this.link = this.querySelector('a').getAttribute('href');
+      this.title = this.querySelector('a').innerText;
       this.innerHTML = null;
     }
   }
 
+  // TODO: From simple-cta, want to see if this works
   _clickCard(e) {
     if (this.editMode) {
       e.preventDefault();
@@ -99,5 +94,4 @@ export class CircleButtonAd extends LitElement {
   }
 }
 
-
-// add button, button hover, button focus, button disabled, buton active, 
+// add button, button hover, button focus, button disabled, buton active,
