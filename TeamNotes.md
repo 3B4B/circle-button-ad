@@ -9,13 +9,7 @@
 
 
 
-
-
-
-
-
-
-
 #### *Individual Contributions*
-Ashad: Have all button attributes ready to go; currently adding css to view the button.
-Drew: Create a hyperlinked button that has responsive resizing and css properties set up.
+- Ashad: Have all button attributes ready to go; currently adding css to view the button.
+- Drew: Create a hyperlinked button that has responsive resizing and css properties set up.
+
