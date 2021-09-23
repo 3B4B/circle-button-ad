@@ -10,7 +10,8 @@
 </head>
 <body>
   <div id="demo"></div>
-
+  <circle-button-ad>hello</circle-button-ad>
+  <circle-button-ad>abcd</circle-button-ad>
   <script type="module">
     import { html, render } from 'lit';
     import '../circle-button-ad.js';
@@ -19,7 +20,7 @@
     render(
       html`
         <circle-button-ad .title=${title}>
-          some light-dom
+          Google
         </circle-button-ad>
       `,
       document.querySelector('#demo')
