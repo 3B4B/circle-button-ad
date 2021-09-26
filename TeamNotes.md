@@ -1,6 +1,6 @@
 #### Class on Tuesday (9/21):
 *What we learned:*
-  - Using the <slot> tag to improve progressive enhancement
+  - Using the slot tag to improve progressive enhancement
   - How to prevent tabbing to link and button with tabindex
   - How to create replicants of the button in index.html and changing the text/link with <slot> tags
 
