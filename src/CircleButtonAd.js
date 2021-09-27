@@ -13,12 +13,31 @@ export class CircleButtonAd extends LitElement {
         padding: 25px;
         --circle-button-ad-color: #202224;
         --circle-button-ad-text-color: whitesmoke;
+        --circle-button-ad-dark-mode-bg-color: #3b3c3e;
       }
 
-      button :active {
+      :host([dark]) {
+        background-color: black;
       }
-      button :disabled {
-        opacity: 0.4;
+
+      :host([dark]) button {
+        box-shadow: 0px 0px 6px var(--circle-button-ad-text-color);
+      }
+
+      :host([dark]) button:hover,
+      :focus {
+        box-shadow: 0px 0px 6px var(--circle-button-ad-text-color);
+        background-color: var(--circle-button-ad-dark-mode-bg-color);
+        color: var(--circle-button-ad-text-color);
+      }
+
+      /* TODO: This is up after disabled */
+      button:active {
+      }
+      /* TODO: Set this up to reduce opacity and prevent click events */
+      button:disabled {
+        cursor: not-allowed;
+        pointer-events: none;
       }
 
       button {
@@ -55,14 +74,12 @@ export class CircleButtonAd extends LitElement {
         background-color: var(--circle-button-ad-text-color);
         border: 10px solid var(--circle-button-ad-color);
       }
-      a {
-      }
     `;
   }
 
   static get properties() {
     return {
-      text: { type: String, attribute: 'text' },
+      title: { type: String, attribute: 'text' },
       link: { type: String, attribute: 'link' },
       icon: { type: String, attribute: 'icon' },
       disabled: { type: Boolean, reflect: true },
@@ -71,46 +88,46 @@ export class CircleButtonAd extends LitElement {
 
   constructor() {
     super();
-    this.text = 'Google';
+    this.title = 'Google';
     this.link = 'https://google.com';
-    this.icon = 'editor:bubble-chart';
+    this.icon = null;
     this.disabled = false;
 
     // TODO: From simple-cta, want to see if this works
-    if (this.querySelector('a')) {
-      this.link = this.querySelector('a').getAttribute('href');
-      this.text = this.querySelector('a').innerText;
-      this.innerHTML = null;
-    }
+    // if (this.querySelector('a')) {
+    //   this.link = this.querySelector('a').getAttribute('href');
+    //   this.text = this.querySelector('a').innerText;
+    //   this.innerHTML = null;
+    // }
   }
 
   // TODO: From simple-cta, want to see if this works
-  _clickCard(e) {
-    if (this.editMode) {
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-    }
-  }
+  // _clickCard(e) {
+  //   if (this.editMode) {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //     e.stopImmediatePropagation();
+  //   }
+  // }
 
   render() {
     return html`
       <a
         href=${this.link}
-        rel="noreferrer"
+        rel="noopener noreferrer"
         target="_blank"
         role="button"
         tabindex="-1"
       >
-        <button>
+        <button ?disabled=${this.disabled}>
           <slot>${this.text}</slot>
           ${this.icon
             ? html`<simple-icon-lite icon=${this.icon}></simple-icon-lite>`
-            : ''}
+            : ``}
         </button>
       </a>
     `;
   }
 }
 
-// add button focus, button disabled, buton active,
+// add button focus, button disabled, button active,
