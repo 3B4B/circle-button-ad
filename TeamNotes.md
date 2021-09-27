@@ -1,3 +1,8 @@
+#### Sunday, Sept. 26:
+  - Met via zoom for 1 hour to discuss progress and goals for upcoming week
+  - Resolved current git Issues and created new ones to better address remaining tasks
+  - Set deadline for tasks to ensure everything can be cleaned up before due date
+
 #### Class on Tuesday (9/21):
 *What we learned:*
   - Using the slot tag to improve progressive enhancement
