@@ -17,17 +17,16 @@
 </head>
 <body>
   <div id="demo"></div>
-  <circle-button-ad dark>hello</circle-button-ad>
-  <circle-button-ad>abcd</circle-button-ad>
+  <circle-button-ad dark></circle-button-ad>
+  <circle-button-ad disabled="true">abcd</circle-button-ad>
   <script type="module">
     import { html, render } from 'lit';
     import '../circle-button-ad.js';
 
-    const title = 'Button testing';
+    const title = 'Button1';
     render(
       html`
         <circle-button-ad .title=${title}>
-          Google
         </circle-button-ad>
       `,
       document.querySelector('#demo')

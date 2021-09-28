@@ -1,9 +1,9 @@
-import { html, css, LitElement } from 'lit';
+import { LitElement, html, css } from 'lit';
+import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
+import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 // import { remoteLinkBehavior } from "@lrnwebcomponents/utils/remoteLinkBehavior.js";
 // import { activeStateBehavior } from "@lrnwebcomponents/utils/activeStateBehavior.js";
 // import { SimpleColors } from "@lrnwebcomponents/simple-colors/simple-colors.js";
-import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
-import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 
 export class CircleButtonAd extends LitElement {
   static get styles() {
@@ -14,6 +14,7 @@ export class CircleButtonAd extends LitElement {
         --circle-button-ad-color: #202224;
         --circle-button-ad-text-color: whitesmoke;
         --circle-button-ad-dark-mode-bg-color: #3b3c3e;
+        --circle-button-ad-active-shadow: #99ffff;
       }
 
       :host([dark]) {
@@ -25,19 +26,30 @@ export class CircleButtonAd extends LitElement {
       }
 
       :host([dark]) button:hover,
-      :focus {
+      :host([dark]) button:focus {
         box-shadow: 0px 0px 6px var(--circle-button-ad-text-color);
         background-color: var(--circle-button-ad-dark-mode-bg-color);
         color: var(--circle-button-ad-text-color);
       }
 
-      /* TODO: This is up after disabled */
-      button:active {
+      button:enabled:active,
+      :host([dark]) button:active {
+        box-shadow: 0px 0px 10px var(--circle-button-ad-active-shadow);
+        transition: 0.2s;
+        color: var(--circle-button-ad-text-color);
+        background-color: var(--circle-button-ad-color);
       }
-      /* TODO: Set this up to reduce opacity and prevent click events */
+
       button:disabled {
-        cursor: not-allowed;
         pointer-events: none;
+        opacity: 0.5;
+      }
+
+      a:disabled {
+        pointer-events: none;
+        background-color: transparent !important;
+        border-color: transparent !important;
+        text-decoration: none;
       }
 
       button {
@@ -45,23 +57,27 @@ export class CircleButtonAd extends LitElement {
         max-width: 100%;
         min-height: 120px;
         max-height: auto;
-        text-decoration: none;
-        display: inline-block;
+
         box-shadow: 0px 0px 4px var(--circle-button-ad-color);
         border: 10px solid transparent;
         color: var(--circle-button-ad-text-color);
         background-color: var(--circle-button-ad-color);
+
         font: helvetica;
         font-size: 2rem;
         font-weight: bold;
+        text-decoration: none;
+
+        display: inline-block;
         overflow-wrap: break-word;
-        border-radius: 50%;
-        position: relative;
         text-align: center;
         vertical-align: middle;
+        border-radius: 50%;
         padding: 15px;
+
         transition: 0.5s;
       }
+
       button:before {
         content: '';
         display: inline-block;
@@ -69,17 +85,23 @@ export class CircleButtonAd extends LitElement {
         padding-top: 100%;
       }
       button:hover,
-      :focus {
+      button:focus {
         color: var(--circle-button-ad-color);
         background-color: var(--circle-button-ad-text-color);
         border: 10px solid var(--circle-button-ad-color);
+      }
+
+      a {
+        background-color: transparent !important;
+        border-color: transparent !important;
+        text-decoration: none;
       }
     `;
   }
 
   static get properties() {
     return {
-      title: { type: String, attribute: 'text' },
+      title: { type: String, attribute: 'title' },
       link: { type: String, attribute: 'link' },
       icon: { type: String, attribute: 'icon' },
       disabled: { type: Boolean, reflect: true },
@@ -101,14 +123,15 @@ export class CircleButtonAd extends LitElement {
     // }
   }
 
-  // TODO: From simple-cta, want to see if this works
-  // _clickCard(e) {
-  //   if (this.editMode) {
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //     e.stopImmediatePropagation();
-  //   }
-  // }
+  _clickLink(e) {
+    this.blur();
+    if (this.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      document.querySelector('a').disabled = true;
+    }
+  }
 
   render() {
     return html`
@@ -118,9 +141,12 @@ export class CircleButtonAd extends LitElement {
         target="_blank"
         role="button"
         tabindex="-1"
+        part="circle-button-ad-link"
+        @click=${this._clickLink}
       >
         <button ?disabled=${this.disabled}>
-          <slot>${this.text}</slot>
+          ${this.title}
+          <slot></slot>
           ${this.icon
             ? html`<simple-icon-lite icon=${this.icon}></simple-icon-lite>`
             : ``}
@@ -129,5 +155,3 @@ export class CircleButtonAd extends LitElement {
     `;
   }
 }
-
-// add button focus, button disabled, button active,
