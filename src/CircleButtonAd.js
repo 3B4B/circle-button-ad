@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { LitElement, html, css } from 'lit';
 import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
 import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
@@ -15,6 +16,7 @@ export class CircleButtonAd extends LitElement {
         --circle-button-ad-text-color: whitesmoke;
         --circle-button-ad-dark-mode-bg-color: #3b3c3e;
         --circle-button-ad-active-shadow: #99ffff;
+        --circle-button-ad-link-color: transparent !important;
       }
 
       :host([dark]) {
@@ -40,9 +42,11 @@ export class CircleButtonAd extends LitElement {
         background-color: var(--circle-button-ad-color);
       }
 
-      button:disabled {
+      button:disabled,
+      :host([dark]) button:disabled {
         pointer-events: none;
         opacity: 0.5;
+        box-shadow: none;
       }
 
       a:disabled {
@@ -92,8 +96,8 @@ export class CircleButtonAd extends LitElement {
       }
 
       a {
-        background-color: transparent !important;
-        border-color: transparent !important;
+        background-color: var(--circle-button-ad-link-color);
+        border-color: var(--circle-button-ad-link-color);
         text-decoration: none;
       }
     `;
@@ -101,7 +105,7 @@ export class CircleButtonAd extends LitElement {
 
   static get properties() {
     return {
-      title: { type: String, attribute: 'title' },
+      title: { type: String, attribute: 'title', reflect: true },
       link: { type: String, attribute: 'link' },
       icon: { type: String, attribute: 'icon' },
       disabled: { type: Boolean, reflect: true },
@@ -112,9 +116,9 @@ export class CircleButtonAd extends LitElement {
     super();
     this.title = 'Google';
     this.link = 'https://google.com';
-    this.icon = null;
+    this.icon = 'touch-app';
     this.disabled = false;
-
+    this.addEventListener('keydown', this._keyPress);
     // TODO: From simple-cta, want to see if this works
     // if (this.querySelector('a')) {
     //   this.link = this.querySelector('a').getAttribute('href');
@@ -129,7 +133,13 @@ export class CircleButtonAd extends LitElement {
       e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation();
-      document.querySelector('a').disabled = true;
+      document.querySelector('a').disabled = 'true';
+    }
+  }
+
+  _keyPress(e) {
+    if (e.key === 'Escape') {
+      this.blur();
     }
   }
 
