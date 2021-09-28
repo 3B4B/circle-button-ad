@@ -28,11 +28,23 @@
 - Ashad: Have all button attributes ready to go; currently adding css to view the button.
 - Drew: Create a hyperlinked button that has responsive resizing and css properties set up.
   
-  Tuesday, Sept. 28:
-  Similarties: DLDBTN
-  - You are able to tab to the button
-  - Hover ability 
-  Differences:
-  - Links are in the index.html rather than being in the properties and constructor
-  - When the button is clicked on, there is a dropdown menu to download the different OS versions of VSCode
+ #### Tuesday, Sept. 28:
+  Paired Group: [dld-btn](https://github.com/IST402/btnproject1/tree/main/dld-btn)
+  
+  *Similarities:*
+  - Both buttons can be tabbed to.
+  - Both button have a :hover feature
+  
+  *Differences:*
+  - Dld-btn's links are entered in the index.html rather than being in the properties and constructor.
+  - When the button is clicked on, there is a dropdown menu to download the different OS versions of VSCode--our button links to a website instead.
+  
+  *One piece of code we will be utilizing (allows esc key to unfocus from button):*
+  ```
+  keyPress (e) { console.log(e)
+    if(e.key === "Escape") {
+      this._toggleDropdown(e)
+    }
+  }
+  ```
 
