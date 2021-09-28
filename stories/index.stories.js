@@ -6,7 +6,6 @@ export default {
   component: 'circle-button-ad',
   argTypes: {
     title: { control: 'text' },
-    counter: { control: 'number' },
     textColor: { control: 'color' },
   },
 };
