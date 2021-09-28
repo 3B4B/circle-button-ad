@@ -27,4 +27,12 @@
 #### *Individual Contributions*
 - Ashad: Have all button attributes ready to go; currently adding css to view the button.
 - Drew: Create a hyperlinked button that has responsive resizing and css properties set up.
+  
+  Tuesday, Sept. 28:
+  Similarties: DLDBTN
+  - You are able to tab to the button
+  - Hover ability 
+  Differences:
+  - Links are in the index.html rather than being in the properties and constructor
+  - When the button is clicked on, there is a dropdown menu to download the different OS versions of VSCode
 
