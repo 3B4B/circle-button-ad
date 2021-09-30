@@ -1,9 +1,9 @@
 {
-  "name": "circle-button-ad",
+  "name": "@3b4b/circle-button-ad",
   "description": "Webcomponent circle-button-ad following open-wc recommendations",
   "license": "MIT",
   "author": "circle-button-ad",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "module": "index.js",
   "scripts": {
@@ -54,5 +54,9 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
   }
 }

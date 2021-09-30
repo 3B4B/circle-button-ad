@@ -119,12 +119,6 @@ export class CircleButtonAd extends LitElement {
     this.icon = 'touch-app';
     this.disabled = false;
     this.addEventListener('keydown', this._keyPress);
-    // TODO: From simple-cta, want to see if this works
-    // if (this.querySelector('a')) {
-    //   this.link = this.querySelector('a').getAttribute('href');
-    //   this.text = this.querySelector('a').innerText;
-    //   this.innerHTML = null;
-    // }
   }
 
   _clickLink(e) {

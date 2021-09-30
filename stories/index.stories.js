@@ -6,7 +6,9 @@ export default {
   component: 'circle-button-ad',
   argTypes: {
     title: { control: 'text' },
-    textColor: { control: 'color' },
+    link: { control: 'text' },
+    disabled: { control: 'boolean' },
+    icon: { control: 'text' },
   },
 };
 
