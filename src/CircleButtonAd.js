@@ -109,6 +109,7 @@ export class CircleButtonAd extends LitElement {
       link: { type: String, attribute: 'link' },
       icon: { type: String, attribute: 'icon' },
       disabled: { type: Boolean, reflect: true },
+      dark: { type: Boolean, reflect: true },
     };
   }
 
@@ -119,6 +120,7 @@ export class CircleButtonAd extends LitElement {
     this.icon = 'touch-app';
     this.disabled = false;
     this.addEventListener('keydown', this._keyPress);
+    this.dark = false;
   }
 
   _clickLink(e) {
