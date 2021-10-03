@@ -110,6 +110,7 @@ export class CircleButtonAd extends LitElement {
       icon: { type: String, attribute: 'icon' },
       disabled: { type: Boolean, reflect: true },
       dark: { type: Boolean, reflect: true },
+      audio: { type: Boolean, reflect: true },
     };
   }
 
@@ -121,15 +122,29 @@ export class CircleButtonAd extends LitElement {
     this.disabled = false;
     this.addEventListener('keydown', this._keyPress);
     this.dark = false;
+    this.audio = true;
   }
 
   _clickLink(e) {
-    this.blur();
+    e.preventDefault();
     if (this.disabled) {
-      e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation();
       document.querySelector('a').disabled = 'true';
+    } else {
+      if (this.audio) {
+        console.log('in use Sound');
+        const sound = new Audio(
+          new URL(`../lib/woo.mp3`, import.meta.url).href
+        );
+        sound.play();
+        sound.onended = () => {
+          window.open(this.link, '_blank', 'noopener noreferrer');
+        };
+      } else {
+        window.open(this.link, '_blank', 'noopener noreferrer');
+      }
+      this.blur();
     }
   }
 
