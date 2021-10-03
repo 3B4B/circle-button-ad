@@ -10,6 +10,7 @@ export default {
     disabled: { control: 'boolean' },
     icon: { control: 'text' },
     dark: { control: 'boolean' },
+    audio: { control: 'boolean' },
   },
 };
 
@@ -17,9 +18,10 @@ function Template({
   title = 'Google',
   link = 'https://google.com',
   disabled = false,
-  dark = true,
+  dark = false,
   icon = 'touch-app',
   slot = '',
+  audio = true,
 }) {
   return html`
     <circle-button-ad
@@ -28,6 +30,7 @@ function Template({
       .disabled=${disabled}
       .dark=${dark}
       .icon=${icon}
+      .audio=${audio}
     >
       ${slot}
     </circle-button-ad>
@@ -35,21 +38,3 @@ function Template({
 }
 
 export const Regular = Template.bind({});
-
-// export const CustomTitle = Template.bind({});
-// CustomTitle.args = {
-//   title: 'My title',
-// };
-
-// export const CustomCounter = Template.bind({});
-// CustomCounter.args = {
-//   counter: 123456,
-// };
-
-// export const SlottedContent = Template.bind({});
-// SlottedContent.args = {
-//   slot: html`<p>Slotted content</p>`,
-// };
-// SlottedContent.argTypes = {
-//   slot: { table: { disable: true } },
-// };

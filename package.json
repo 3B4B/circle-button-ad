@@ -3,7 +3,7 @@
   "description": "Webcomponent circle-button-ad following open-wc recommendations",
   "license": "MIT",
   "author": "circle-button-ad",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "module": "index.js",
   "scripts": {
