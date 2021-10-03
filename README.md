@@ -5,7 +5,7 @@ This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) reco
 ## Installation
 
 ```bash
-npm i circle-button-ad
+npm i @3b4b/circle-button-ad
 ```
 
 ## Usage
